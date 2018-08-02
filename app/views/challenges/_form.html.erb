@@ -1,0 +1,32 @@
+<%= form_for @challenge, class: 'form' do |f| %>
+  <p>
+    Collection:
+    <%= link_to @collection.name, @collection %>
+    <%= f.hidden_field :collection_id, value: @collection.id %>
+  </p>
+  <div class="form-group">
+    <%= f.label :type %>
+    <%= f.select :type,
+          options_for_select(
+            [
+              ['Prompt Challenge', 'PromptChallenge'],
+              ['Gift Challenge', 'GiftChallenge']
+            ]
+          ),
+          class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :deadline, 'Submission Deadline' %>
+    <%= f.text_field :deadline, class: 'form-control', id: 'datetimepicker' %>
+  </div>
+
+  <%= f.submit 'Submit', class: 'btn btn-primary' %>
+<% end %>

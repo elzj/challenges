@@ -1,0 +1,19 @@
+<h1>Signup for <%= @signup.user_login %> for <%= @challenge.name %></h1>
+
+<h2>Offers</h2>
+
+<% @signup.offers.each do |prompt| %>
+  <%= render 'prompts/blurb', prompt: prompt %>
+<% end %>
+
+<h2>Requests</h2>
+
+<% @signup.requests.each do |prompt| %>
+  <%= render 'prompts/blurb', prompt: prompt %>
+<% end %>
+
+<h2>Assignments</h2>
+
+<% @signup.assigned_requests.each do |prompt| %>
+  <%= render 'prompts/blurb', prompt: prompt %>
+<% end %>

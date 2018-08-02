@@ -1,0 +1,7 @@
+<h1>Tag Set for <%= @challenge.name %></h1>
+
+<ul>
+  <% @tag_set.tags.each do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+</ul>

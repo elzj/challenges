@@ -1,0 +1,13 @@
+<h1>Prompts#index</h1>
+
+<% if @prompts %>
+  <ul>
+    <% @prompts.each do |prompt| %>
+      <li>
+        <h4>Prompt from <%= prompt.user_login %></h4>
+        <div><%= prompt.body %></div>
+        <p><%= prompt.tags.map(&:name).join(', ') %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

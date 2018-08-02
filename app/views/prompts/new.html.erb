@@ -1,0 +1,16 @@
+<h1>Prompts#new</h1>
+
+<%= form_for @prompt do |f| %>
+  <div class='form-group'>
+    <%= f.label :challenge_id %>
+    <%= f.text_field :challenge_id, class: 'form-control' %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+
+  <%= render 'tags/taggable_form', f: f %>
+
+  <%= f.submit 'Submit', class: 'btn btn-primary' %>
+<% end %>

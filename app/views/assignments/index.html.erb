@@ -1,0 +1,23 @@
+<h1>Assignments for <%= @challenge.name %></h1>
+<p><%= @assignments.length %> assignments</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Recipient</th>
+      <th>Assignee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @assignments.each do |assignment| %>
+      <tr>
+        <td>
+          <%= assignment.recipient_name %>
+        </td>
+        <td>
+          <%= assignment.assignee_name %>
+        </td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

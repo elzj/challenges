@@ -1,0 +1,74 @@
+<div class="challenge header">
+  <h1><%= @challenge.name %></h1>
+
+  <div><%= @challenge.description %></div>
+</div>
+<div class="content row">
+  <div class="col-sm-8">
+    <% @prompts && @prompts.each do |prompt| %>
+      <%= render 'prompts/blurb', prompt: prompt %>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4">
+  <div class="card" style="width: 18rem; height: auto;" id="right">
+    <div class="card-header">
+      Filters
+    </div>    
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <h5 class="card-title">
+          <a class="" data-toggle="collapse" href="#fandomList" role="button" aria-expanded="false" aria-controls="fandomList">
+            Fandoms
+          </a>
+        </h5>
+        <ul id="fandomList" class="collapse">
+          <li>The Hobbit</li>
+          <li>The Fellowship of the Ring</li>
+          <li>The Two Towers</li>
+          <li>The Return of the King</li>
+        </ul>
+      </li>
+      <li class="list-group-item">
+        <h5 class="card-title">
+          <a class="" data-toggle="collapse" href="#shipList" role="button" aria-expanded="false" aria-controls="shipList">
+            Relationships
+          </a>
+        </h5>
+        <ul id="shipList" class="collapse">
+          <li>The Hobbit</li>
+          <li>The Fellowship of the Ring</li>
+          <li>The Two Towers</li>
+          <li>The Return of the King</li>
+        </ul>
+      </li>
+      <li class="list-group-item">
+        <h5 class="card-title">
+          <a class="" data-toggle="collapse" href="#charList" role="button" aria-expanded="false" aria-controls="charList">
+            Characters
+          </a>
+        </h5>
+        <ul id="charList" class="collapse">
+          <li>The Hobbit</li>
+          <li>The Fellowship of the Ring</li>
+          <li>The Two Towers</li>
+          <li>The Return of the King</li>
+        </ul>
+      </li>
+      <li class="list-group-item">
+        <h5 class="card-title">
+          <a class="" data-toggle="collapse" href="#tagList" role="button" aria-expanded="false" aria-controls="tagList">
+            Additional Tags
+          </a>
+        </h5>
+        <ul id="tagList" class="collapse">
+          <li>The Hobbit</li>
+          <li>The Fellowship of the Ring</li>
+          <li>The Two Towers</li>
+          <li>The Return of the King</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>

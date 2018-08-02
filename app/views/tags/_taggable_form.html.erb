@@ -1,0 +1,46 @@
+<% tag_types ||= Tag::TYPES %>
+
+<% if tag_types.include? 'Fandom' %>
+  <%= render 'tags/tag_autocomplete_field', f: f, tag_type: :fandom_names %>
+<% end %>
+
+<% if tag_types.include? 'Rating' %>
+  <div class="form-group">
+    <%= f.label :rating_names %>
+    <%= f.select :rating_names,
+          options_for_select(Rating::DEFAULTS),
+          { include_blank: include_blank ||= false },
+          { class: 'form-control' } %>
+  </div>
+<% end %>
+
+<% if tag_types.include? 'Warning' %>
+  <div class="form-group">
+    <%= f.label :warning_names %>
+    <%= f.select :warning_names,
+          options_for_select(Warning::DEFAULTS),
+          { include_blank: include_blank ||= false },
+          { class: 'form-control' } %>
+  </div>
+<% end %>
+
+<% if tag_types.include? 'Category' %>
+  <div class="form-group">
+    <%= f.label :category_names %>
+    <%= f.select :category_names,
+          options_for_select(Category::DEFAULTS),
+          { include_blank: true },
+          { class: 'form-control' } %>
+  </div>
+<% end %>
+
+<% if tag_types.include? 'Character' %>
+  <%= render 'tags/tag_autocomplete_field', f: f, tag_type: :character_names %>
+<% end %>
+<% if tag_types.include? 'Relationship' %>
+  <%= render 'tags/tag_autocomplete_field', f: f, tag_type: :relationship_names %>
+<% end %>
+<% if tag_types.include? 'Freeform' %>
+  <%= render 'tags/tag_autocomplete_field', f: f, tag_type: :freeform_names %>
+<% end %>
+

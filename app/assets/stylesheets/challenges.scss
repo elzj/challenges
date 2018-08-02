@@ -1,0 +1,21 @@
+// Place all the styles related to the Challenges controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body { height: 100%; margin: 0;}
+#main { height: 100%; }
+
+.challenge.header {
+  width: 100%;
+}
+
+/*#main .content {
+  display: flex
+}*/
+
+
+#left {
+  width: 70%;
+}
+
+li ul { margin: 0; padding: 0; list-style: none; }

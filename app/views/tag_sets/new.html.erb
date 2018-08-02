@@ -1,0 +1,12 @@
+<h1>Set Up Tags</h1>
+
+<p>Add your basic tags. For a simple challenge, just specify the fandom(s), relationships, characters, etc. that your participants are allowed to request. Not picky? Just leave the field blank. Running a complex, multi-fandom challenge? Don't worry, you can come back to this later.</p>
+
+<%= form_for [@challenge, @tag_set] do |f| %>
+  <fieldset>
+    <legend>Tags</legend>
+    <%= render 'tags/taggable_form', f: f, include_blank: true %>
+  </fieldset>
+
+  <%= f.submit 'Submit', class: 'btn btn-primary' %>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>Edit Prompt</h1>
+
+<%= form_for @prompt do |f| %>
+  <p>
+    <%= f.label :challenge_id %>
+    <%= f.text_field :challenge_id %>
+  </p>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </p>
+
+  <%= f.submit 'Submit' %>
+<% end %>

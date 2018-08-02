@@ -1,0 +1,64 @@
+<h1>Update Your Challenge Rules</h1>
+
+<%= form_for @challenge, class: 'form' do |f| %>
+  <%= f.fields_for :rules do |rules| %>
+
+    <fieldset>
+      <legend>Tags</legend>
+      <div class="form-group">
+        <%= rules.check_box :limited_to_set %>
+        <%= rules.label :limited_to_set, "Allow people to use only the tags specified in the tag set on their " + 
+          (@challenge.gift? ? "requests" : "prompts") %>
+      </div>
+    </fieldset>
+
+    <% if @challenge.gift? %>
+      <fieldset>
+        <legend>Signup Rules</legend>
+        <div class="form-group">
+          <%= rules.label :requests_required %>
+          <%= rules.number_field :requests_required,
+                class: 'form-control' %>
+          <%= rules.label :requests_allowed %>
+          <%= rules.number_field :requests_allowed,
+                class: 'form-control' %>
+          <%= rules.label :offers_required %>
+          <%= rules.number_field :offers_required,
+                class: 'form-control' %>
+          <%= rules.label :offers_allowed %>
+          <%= rules.number_field :offers_allowed,
+                class: 'form-control' %>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Challenge Matching</legend>
+        <div class="form-group">
+          <h6>Required Matching Types</h6>
+          <p>Two participants need to have at least one of the same tags in this category in common in order to match. The more they have in common, the better they'll match.</p>
+
+          <%= rules.collection_check_boxes :required_matchers,
+                Tag::TYPES, :classify, :classify do |t| %>
+            <p>
+              <%= t.check_box %>
+              <%= t.label %>
+            </p>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <h6>Optional Matching Types</h6>
+          <p>Tags not required to match but weighed in the matching. Tags that aren't required or optional will be ignored.</p>
+
+          <%= rules.collection_check_boxes :optional_matchers,
+                Tag::TYPES, :classify, :classify do |t| %>
+            <p>
+              <%= t.check_box %>
+              <%= t.label %>
+            </p>
+          <% end %>
+        </div>
+      </fieldset>
+    <% end %>
+  <% end %>
+
+  <%= f.submit 'Submit', class: 'btn btn-primary' %>
+<% end %>

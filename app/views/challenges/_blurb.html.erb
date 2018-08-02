@@ -1,0 +1,12 @@
+<div class="card challenge" style="margin: 1em 0; padding: 0.5em;">
+  <h5><%= link_to challenge.name, challenge %></h5>
+  <div><%= challenge.description %></div>
+  <ul>
+    <li>Type: <%= challenge.display_type %></li>
+    <li>Created: <%= challenge.created_at %></li>
+    <% if challenge.deadline_in_future? %>
+      <li>Deadline: <%= challenge.deadline %></li>
+    <% end %>
+    <li>Active: <%= challenge.active? ? 'Yes' : 'No' %></li>
+  </ul>
+</div>
